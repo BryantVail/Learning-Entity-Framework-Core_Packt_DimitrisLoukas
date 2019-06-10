@@ -1,0 +1,45 @@
+
+
+errors: {
+    [
+        {
+            errorMessage:
+                "Assembly location for razor SDK Tasks was not specified. The most likely cause is an older incompatible version of Microsoft.NET.Sdk.Razor, or Microsoft.NET.Skd.Web used by this project. Please tartget a newer version of the .NET Core SDK",
+            solutionAttempts: [
+                {
+                    attempt: ".net Core 2.2 sdk", 
+                    worked: true
+                }
+            ]
+        },
+        {
+            errorMessage: 
+                "System.Data.SqlClient.SqlException: 'A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. "
+            SolutionAttempts: [
+                {
+                    Attempt: "change database location from '(local)' to the desktop name literal",
+                    worked: true,
+                }
+            ]
+        }
+    ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
