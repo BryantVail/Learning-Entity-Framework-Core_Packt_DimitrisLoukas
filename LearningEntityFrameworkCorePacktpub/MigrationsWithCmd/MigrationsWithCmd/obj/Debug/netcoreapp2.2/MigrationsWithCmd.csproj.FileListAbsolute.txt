@@ -1,0 +1,8 @@
+C:\Users\bryan\OneDrive\Documents\GitHub\Learning-Entity-Framework-Core_Packt_DimitrisLoukas\MigrationsWithCmd\MigrationsWithCmd\bin\Debug\netcoreapp2.2\MigrationsWithCmd.deps.json
+C:\Users\bryan\OneDrive\Documents\GitHub\Learning-Entity-Framework-Core_Packt_DimitrisLoukas\MigrationsWithCmd\MigrationsWithCmd\bin\Debug\netcoreapp2.2\MigrationsWithCmd.runtimeconfig.json
+C:\Users\bryan\OneDrive\Documents\GitHub\Learning-Entity-Framework-Core_Packt_DimitrisLoukas\MigrationsWithCmd\MigrationsWithCmd\bin\Debug\netcoreapp2.2\MigrationsWithCmd.runtimeconfig.dev.json
+C:\Users\bryan\OneDrive\Documents\GitHub\Learning-Entity-Framework-Core_Packt_DimitrisLoukas\MigrationsWithCmd\MigrationsWithCmd\bin\Debug\netcoreapp2.2\MigrationsWithCmd.dll
+C:\Users\bryan\OneDrive\Documents\GitHub\Learning-Entity-Framework-Core_Packt_DimitrisLoukas\MigrationsWithCmd\MigrationsWithCmd\obj\Debug\netcoreapp2.2\MigrationsWithCmd.csprojAssemblyReference.cache
+C:\Users\bryan\OneDrive\Documents\GitHub\Learning-Entity-Framework-Core_Packt_DimitrisLoukas\MigrationsWithCmd\MigrationsWithCmd\obj\Debug\netcoreapp2.2\MigrationsWithCmd.csproj.CoreCompileInputs.cache
+C:\Users\bryan\OneDrive\Documents\GitHub\Learning-Entity-Framework-Core_Packt_DimitrisLoukas\MigrationsWithCmd\MigrationsWithCmd\obj\Debug\netcoreapp2.2\MigrationsWithCmd.AssemblyInfoInputs.cache
+C:\Users\bryan\OneDrive\Documents\GitHub\Learning-Entity-Framework-Core_Packt_DimitrisLoukas\MigrationsWithCmd\MigrationsWithCmd\obj\Debug\netcoreapp2.2\MigrationsWithCmd.AssemblyInfo.cs
