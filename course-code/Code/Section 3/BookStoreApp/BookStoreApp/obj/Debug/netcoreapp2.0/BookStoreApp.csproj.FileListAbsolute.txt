@@ -1,0 +1,11 @@
+C:\Users\jmast\Google Drive\Documents\Packt\Learning Entity Framework .NET Core\Section 3\BookStoreApp\BookStoreApp\bin\Debug\netcoreapp2.0\BookStoreApp.deps.json
+C:\Users\jmast\Google Drive\Documents\Packt\Learning Entity Framework .NET Core\Section 3\BookStoreApp\BookStoreApp\bin\Debug\netcoreapp2.0\BookStoreApp.runtimeconfig.json
+C:\Users\jmast\Google Drive\Documents\Packt\Learning Entity Framework .NET Core\Section 3\BookStoreApp\BookStoreApp\bin\Debug\netcoreapp2.0\BookStoreApp.runtimeconfig.dev.json
+C:\Users\jmast\Google Drive\Documents\Packt\Learning Entity Framework .NET Core\Section 3\BookStoreApp\BookStoreApp\bin\Debug\netcoreapp2.0\BookStoreApp.dll
+C:\Users\jmast\Google Drive\Documents\Packt\Learning Entity Framework .NET Core\Section 3\BookStoreApp\BookStoreApp\obj\Debug\netcoreapp2.0\BookStoreApp.csprojResolveAssemblyReference.cache
+C:\Users\jmast\Google Drive\Documents\Packt\Learning Entity Framework .NET Core\Section 3\BookStoreApp\BookStoreApp\obj\Debug\netcoreapp2.0\BookStoreApp.csproj.CoreCompileInputs.cache
+C:\Users\jmast\Google Drive\Documents\Packt\Learning Entity Framework .NET Core\Section 3\BookStoreApp\BookStoreApp\obj\Debug\netcoreapp2.0\BookStoreApp.AssemblyInfoInputs.cache
+C:\Users\jmast\Google Drive\Documents\Packt\Learning Entity Framework .NET Core\Section 3\BookStoreApp\BookStoreApp\obj\Debug\netcoreapp2.0\BookStoreApp.AssemblyInfo.cs
+C:\Users\jmast\Google Drive\Documents\Packt\Learning Entity Framework .NET Core\Section 3\BookStoreApp\BookStoreApp\bin\Debug\netcoreapp2.0\BookStoreApp.pdb
+C:\Users\jmast\Google Drive\Documents\Packt\Learning Entity Framework .NET Core\Section 3\BookStoreApp\BookStoreApp\obj\Debug\netcoreapp2.0\BookStoreApp.dll
+C:\Users\jmast\Google Drive\Documents\Packt\Learning Entity Framework .NET Core\Section 3\BookStoreApp\BookStoreApp\obj\Debug\netcoreapp2.0\BookStoreApp.pdb

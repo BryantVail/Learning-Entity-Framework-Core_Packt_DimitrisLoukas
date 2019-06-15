@@ -1,0 +1,76 @@
+﻿using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
+using System;
+using System.Collections.Generic;
+
+namespace BookStoreApp.Migrations
+{
+    public partial class ChangeAuthorPK : Migration
+    {
+        protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropPrimaryKey(
+                name: "PK_Authors",
+                table: "Authors");
+
+            migrationBuilder.AlterColumn<string>(
+                name: "LastName",
+                table: "Authors",
+                type: "nvarchar(max)",
+                nullable: true,
+                oldClrType: typeof(string));
+
+            migrationBuilder.AlterColumn<string>(
+                name: "FirstName",
+                table: "Authors",
+                type: "nvarchar(max)",
+                nullable: true,
+                oldClrType: typeof(string));
+
+            migrationBuilder.AddColumn<int>(
+                name: "Id",
+                table: "Authors",
+                type: "int",
+                nullable: false,
+                defaultValue: 0)
+                .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            migrationBuilder.AddPrimaryKey(
+                name: "PK_Authors",
+                table: "Authors",
+                column: "Id");
+        }
+
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropPrimaryKey(
+                name: "PK_Authors",
+                table: "Authors");
+
+            migrationBuilder.DropColumn(
+                name: "Id",
+                table: "Authors");
+
+            migrationBuilder.AlterColumn<string>(
+                name: "LastName",
+                table: "Authors",
+                nullable: false,
+                oldClrType: typeof(string),
+                oldType: "nvarchar(max)",
+                oldNullable: true);
+
+            migrationBuilder.AlterColumn<string>(
+                name: "FirstName",
+                table: "Authors",
+                nullable: false,
+                oldClrType: typeof(string),
+                oldType: "nvarchar(max)",
+                oldNullable: true);
+
+            migrationBuilder.AddPrimaryKey(
+                name: "PK_Authors",
+                table: "Authors",
+                columns: new[] { "FirstName", "LastName" });
+        }
+    }
+}
