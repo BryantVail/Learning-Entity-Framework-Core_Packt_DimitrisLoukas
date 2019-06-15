@@ -22,10 +22,13 @@ C:\Users\bryan\OneDrive\Documents\GitHub\Learning-Entity-Framework-Core_Packt_Di
 //CMD verision of Add-Migration [migrationName]
 dotnet ef migrations add InitialMigration
 
+C:\Users\bryan\OneDrive\Documents\GitHub\Learning-Entity-Framework-Core_Packt_DimitrisLoukas\MigrationsWithTheCmd\MigrationsWithTheCmd>
+dotnet ef migrations add initialMigration
 
+>dotnet ef database update
 
-
-
+//remove/rollback latest migration
+>dotnet ef database remove
 
 
 
