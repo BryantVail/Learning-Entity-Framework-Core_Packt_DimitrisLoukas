@@ -7,14 +7,17 @@ namespace BookStoreApp.Models
 {
     public class Author
     {
-        [Key]
+        //[Key]
         [Required]
-        public string Id { get; set; }
+        public int Id { get; set; }
 
+        [Required]
         public string FirstName { get; set; }
+        [Required]
         public string MiddleName { get; set; }
+        [Required]
         public string LastName { get; set; }
-        public DateTime DoB { get; set; }
+        
         [NotMapped]
         public string FullName {
             get
@@ -27,7 +30,7 @@ namespace BookStoreApp.Models
         public DateTime DateOfBirth { get; set; }
         public string Nationality { get; set; }
 
-        public List<Book> Books { get; set; }
+        public List<AuthorBookLookup> Books { get; set; }
 
     }
 }

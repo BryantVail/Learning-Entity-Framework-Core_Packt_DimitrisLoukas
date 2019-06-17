@@ -21,24 +21,39 @@ namespace BookStoreApp.Migrations
 
             modelBuilder.Entity("BookStoreApp.Models.Author", b =>
                 {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("DateOfBirth");
 
-                    b.Property<DateTime>("DoB");
+                    b.Property<string>("FirstName")
+                        .IsRequired();
 
-                    b.Property<string>("FirstName");
+                    b.Property<string>("LastName")
+                        .IsRequired();
 
-                    b.Property<string>("LastName");
-
-                    b.Property<string>("MiddleName");
+                    b.Property<string>("MiddleName")
+                        .IsRequired();
 
                     b.Property<string>("Nationality");
 
                     b.HasKey("Id");
 
                     b.ToTable("Authors");
+                });
+
+            modelBuilder.Entity("BookStoreApp.Models.AuthorBookLookup", b =>
+                {
+                    b.Property<int>("AuthorId");
+
+                    b.Property<int>("BookId");
+
+                    b.HasKey("AuthorId", "BookId");
+
+                    b.HasIndex("BookId");
+
+                    b.ToTable("AuthorBooks");
                 });
 
             modelBuilder.Entity("BookStoreApp.Models.Book", b =>
@@ -48,8 +63,6 @@ namespace BookStoreApp.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("AuthorId");
-
-                    b.Property<string>("AuthorId1");
 
                     b.Property<DateTime>("CreatedTimeStamp")
                         .ValueGeneratedOnAdd()
@@ -63,7 +76,7 @@ namespace BookStoreApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AuthorId1");
+                    b.HasIndex("AuthorId");
 
                     b.HasIndex("Isbn")
                         .IsUnique()
@@ -150,11 +163,25 @@ namespace BookStoreApp.Migrations
                     b.ToTable("PersonalLibraryBooks");
                 });
 
-            modelBuilder.Entity("BookStoreApp.Models.Book", b =>
+            modelBuilder.Entity("BookStoreApp.Models.AuthorBookLookup", b =>
                 {
                     b.HasOne("BookStoreApp.Models.Author", "Author")
                         .WithMany("Books")
-                        .HasForeignKey("AuthorId1");
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("BookStoreApp.Models.Book", "Book")
+                        .WithMany()
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("BookStoreApp.Models.Book", b =>
+                {
+                    b.HasOne("BookStoreApp.Models.Author", "Author")
+                        .WithMany()
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("BookStoreApp.Models.Membership", b =>

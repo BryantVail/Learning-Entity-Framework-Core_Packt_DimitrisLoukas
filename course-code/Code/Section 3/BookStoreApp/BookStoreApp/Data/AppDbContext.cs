@@ -15,8 +15,10 @@ namespace BookStoreApp.Data
             
         }
 
-        public DbSet<Book> Books { get; set; }
         public DbSet<Author> Authors { get; set; }
+        public DbSet<Book> Books { get; set; }
+        public DbSet<AuthorBookLookup> AuthorBooks { get; set; }
+
         public DbSet<Client> Clients { get; set; }
         public DbSet<Membership> Memberships { get; set; }
         public DbSet<PersonalLibrary> PersonalLibraries { get; set; }
@@ -32,7 +34,7 @@ namespace BookStoreApp.Data
             //modelBuilder.Entity<Book>().Property(b => b.CreatedTimeStamp).HasDefaultValueSql("getDate()");
             modelBuilder.Entity<Book>().Property<DateTime>("CreatedTimeStamp").HasDefaultValueSql("getDate()");
             //modelBuilder.Entity<Book>().Property<Int32>("AuthorId");
-            //modelBuilder.Entity<Author>().HasKey(a => new { a.FirstName, a.LastName, a.DateOfBirth });
+            //modelBuilder.Entity<Author>().HasKey(a => new { a.FirstName, a.LastName, a.DateOfBirth, a.Id });
 
             //these exist in the class explicitly now
             //modelBuilder.Entity<PersonalLibraryBook>().Property<Int32>("BookId");
@@ -63,6 +65,18 @@ namespace BookStoreApp.Data
                 //PersonalLibraryBook HasMany PersonalLibraryBooks
                 .WithMany(pl => pl.PersonalLibraryBooks)
                 .HasForeignKey(plbs => plbs.PersonalLibraryId);
+
+            ////Books to Authors, Many-to-Many
+            modelBuilder.Entity<AuthorBookLookup>().HasKey(abl => new { abl.AuthorId, abl.BookId });
+            //modelBuilder.Entity<AuthorBookLookup>()
+            //    .HasOne(abl => abl.Author)
+            //    .WithMany(a => a.Books)
+            //    .HasForeignKey(bs => bs.BookId);
+            //modelBuilder.Entity<AuthorBookLookup>()
+            //    .HasOne(abl => abl.Book)
+            //    .WithMany(b => b.Authors)
+            //    .HasForeignKey(a => a.AuthorId);
+
 
         }
     }

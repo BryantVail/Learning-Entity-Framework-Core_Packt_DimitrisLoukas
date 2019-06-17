@@ -16,7 +16,9 @@ namespace BookStoreApp.Models
         [MaxLength(32)]
         public string Title { get; set; }
 
-        
+
+
+        //public List<AuthorBookLookup> Authors { get; set; }
         public int AuthorId { get; set; }
         public Author Author { get; set; }
         public string Isbn { get; set; }
@@ -30,10 +32,19 @@ namespace BookStoreApp.Models
         public string FullTitle
         {
             get
-            {
-                return $"{Author.FullName}'s {Title}";
+            {///*{Author.FullName}*/
+                return $" Author's Name's {Title}";
             }
         }
+
+        //public protected string AppendAuthors()
+        //{
+        //    string author = "";
+        //    foreach (Author author in Authors)
+        //    {
+
+        //    }
+        //}
 
         public List<PersonalLibraryBook> PersonalLibraries { get; set; }
 
