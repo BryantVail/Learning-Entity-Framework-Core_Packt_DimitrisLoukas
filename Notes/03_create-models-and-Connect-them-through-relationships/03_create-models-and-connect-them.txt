@@ -1,0 +1,121 @@
+
+Fluent API
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Book>().Property(b => b.Isbn).HasMaxLength(10);
+        }
+
+
+
+_______________________________
+Primary Keys
+    2Conventions: 
+        "Id" as a literal,
+        {entityName}+Id appended
+- - - - - - - - - - - - - - - - 
+    Composite Primary Keys: 
+        ModelBuilder = FluentAPI 
+            protected override void OnModelCreating(ModelBuilder modelBuilder){
+                //sets the fields in "{}"'s as the composite key
+                modelBuilder.Entity<Author>().HasKey(a => new {a.FirstName, a.LastName});
+            }
+        
+
+_____________________________________
+Unique Fields 
+    protected override void OnModelCreating(ModelBuilder modelBuilder){
+        modelBuilder.Entity<Book>().HasAlternateKey(b => b.Isbn).HasName("UniqueIsbn");//assigns the name of the database restraint
+    }
+
+modelBuilder.Entity<Book>().Property(b => b.Isbn).HasMaxLength(10);
+            //HasIndex(): inserts the parameter to get the index 
+            modelBuilder.Entity<Book>().HasIndex(b => b.Isbn)
+                //records the name of the Index, Has the Unique constraint
+                .HasName("IsbnIndex").IsUnique();
+            modelBuilder.Entity<Book>().Ignore(b => b.FullTitle);
+            
+
+_____________________________________
+Database Generated Values
+    Objectives: 
+        -Default Values
+        -Common Pitfall with Generated DateTime Values
+        -Types, database generated Values
+
+    Default Values 
+        DateTime 
+            Exammple: 
+                wrong: 
+                    modelBuilder.Entity<Book>().Property(b => b.CreatedTimeStamp).HasDefaultValue(DateTime.Now)
+                    //Description: This will send a literal date to the method. This prints a time at the moment the project is compiled as a literal date. 
+                Correct: 
+                    modelBuilder.Entity<Book>().Property(b => b.CreatedTimeStamp)
+                        .HasDefaultValueSql("getDate()");
+            DateTime Considerations: 
+                When Entity Framework Validates project models, ALL fields that are NOT-NULLABLE will be evaluated for data population. DateTime fields are by default NOT-NULLABLE in SQL Server & Entity Framework Core; but the Database is going to be the device adding the property, so we have to let Entity Framework know by using: 
+                    System.ComponentModel.DataAnnotations;
+                    System.ComponentModel.DataAnnotations.Schema;
+    none:  
+        no generation
+    Identity: 
+        Field filled in only when the row is inserted the first time
+    Computed: 
+        updated by the database everytime the row updates
+        //Initialized Values
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public DateTime CreatedTimeStamp { get; set; }
+
+_____________________________________
+Shadow Properties
+    Definition: Shadow Properties are properties that are not defined in the .NET entity class but are defined for that entity type in the EF Core model. The Value and  state of these properties is maintained purely in the "Change Tracker"; many times used for Foreign Key Properties
+
+    error: {
+            actionLeadingToError: "adding controller scaffold",
+            message: 
+                "There was an error running the selected code generator: 'Could not load file or assembly 'Microsoft.EntityFrameworkCore, Version=2.0.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60'. The located assembly's manifest definition does not match the assembly reference. (Exception from HRESULT: 0x80131040)'
+    },
+
+    public BooksController(AppDbContext context)//context as in our AppDbContext.cs file 
+        {
+            _context = context;
+        }
+
+        // GET: Books
+        public async Task<IActionResult> Index()
+        {
+            var books = await _context.Books.ToListAsync();
+            books = books.FindAll(b =>
+            {
+                var now = DateTime.Now;
+                return _context.Entry(b).Property<DateTime>("CreateTimeStamp").CurrentValue >= new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
+            });
+            return View(books);
+        }
+
+
+_____________________________________
+One-to-One 
+
+//One-to-One
+            modelBuilder.Entity<Client>().HasOne(c => c.Library).WithOne(l => l.Client).HasForeignKey<PersonalLibrary>();
+    -//refer to One-to-One image
+
+_____________________________________
+One-to-Many
+
+    "List<Books> Books" in the "Author" class, 
+    Navigation Property of type "Author" in the "Books" class
+
+
+
+
+
+
+
+
+
+
+
+
+
+

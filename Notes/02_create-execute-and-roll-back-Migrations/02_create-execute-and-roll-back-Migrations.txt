@@ -1,0 +1,45 @@
+
+
+//Add Migration from a change in the business domain object
+EntityFrameworkCore\Add-Migration ClassNamePerhaps.MigrationName
+
+Update-Database //end command, whatever Migrations have been added since the last time the "AppDbContextModelSnapshot.cs" has been updated.
+
+
+-------------------------------------------------
+6/13/2019, 7:54PM
+
+//Remove most recent Migration 
+Remove-Migration 
+//Will not change the class for the programmer, so the fix still would need to be done.
+//
+
+------------------------------------------------------
+migrations with CMD 
+
+//restore packages from config file "{AppName}.csproj"
+C:\Users\bryan\OneDrive\Documents\GitHub\Learning-Entity-Framework-Core_Packt_DimitrisLoukas\MigrationsWithCmd> dotnet restore
+
+//CMD verision of Add-Migration [migrationName]
+dotnet ef migrations add InitialMigration
+
+C:\Users\bryan\OneDrive\Documents\GitHub\Learning-Entity-Framework-Core_Packt_DimitrisLoukas\MigrationsWithTheCmd\MigrationsWithTheCmd>
+dotnet ef migrations add initialMigration
+
+>dotnet ef database update
+
+//remove/rollback latest migration
+>dotnet ef database remove
+
+
+
+
+
+
+
+
+
+
+
+
+

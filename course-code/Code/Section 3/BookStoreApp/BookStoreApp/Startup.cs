@@ -24,6 +24,7 @@ namespace BookStoreApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //AddDbContex<TypeDefinedInAppDbContext> -> define the Application's DbContext Class
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc();
         }
@@ -43,12 +44,12 @@ namespace BookStoreApp
 
             app.UseStaticFiles();
 
-            using (var scope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
-            {
-                var context = scope.ServiceProvider.GetService<AppDbContext>();
-                context.Database.Migrate();
-                context.EnsureDatabaseSeeded();
-            }
+            //using (var scope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            //{
+            //    var context = scope.ServiceProvider.GetService<AppDbContext>();
+            //    context.Database.Migrate();
+            //    context.EnsureDatabaseSeeded();
+            //}
 
             app.UseMvc(routes =>
             {

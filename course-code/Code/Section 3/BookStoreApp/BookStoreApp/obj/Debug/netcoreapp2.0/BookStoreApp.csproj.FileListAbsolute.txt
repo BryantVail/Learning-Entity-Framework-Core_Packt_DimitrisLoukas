@@ -9,3 +9,14 @@ C:\Users\jmast\Google Drive\Documents\Packt\Learning Entity Framework .NET Core\
 C:\Users\jmast\Google Drive\Documents\Packt\Learning Entity Framework .NET Core\Section 3\BookStoreApp\BookStoreApp\bin\Debug\netcoreapp2.0\BookStoreApp.pdb
 C:\Users\jmast\Google Drive\Documents\Packt\Learning Entity Framework .NET Core\Section 3\BookStoreApp\BookStoreApp\obj\Debug\netcoreapp2.0\BookStoreApp.dll
 C:\Users\jmast\Google Drive\Documents\Packt\Learning Entity Framework .NET Core\Section 3\BookStoreApp\BookStoreApp\obj\Debug\netcoreapp2.0\BookStoreApp.pdb
+C:\Users\bryan\OneDrive\Documents\GitHub\Learning-Entity-Framework-Core_Packt_DimitrisLoukas\course-code\Code\Section 3\BookStoreApp\BookStoreApp\obj\Debug\netcoreapp2.0\BookStoreApp.csprojAssemblyReference.cache
+C:\Users\bryan\OneDrive\Documents\GitHub\Learning-Entity-Framework-Core_Packt_DimitrisLoukas\course-code\Code\Section 3\BookStoreApp\BookStoreApp\obj\Debug\netcoreapp2.0\BookStoreApp.csproj.CoreCompileInputs.cache
+C:\Users\bryan\OneDrive\Documents\GitHub\Learning-Entity-Framework-Core_Packt_DimitrisLoukas\course-code\Code\Section 3\BookStoreApp\BookStoreApp\obj\Debug\netcoreapp2.0\BookStoreApp.AssemblyInfoInputs.cache
+C:\Users\bryan\OneDrive\Documents\GitHub\Learning-Entity-Framework-Core_Packt_DimitrisLoukas\course-code\Code\Section 3\BookStoreApp\BookStoreApp\obj\Debug\netcoreapp2.0\BookStoreApp.AssemblyInfo.cs
+C:\Users\bryan\OneDrive\Documents\GitHub\Learning-Entity-Framework-Core_Packt_DimitrisLoukas\course-code\Code\Section 3\BookStoreApp\BookStoreApp\obj\Debug\netcoreapp2.0\BookStoreApp.dll
+C:\Users\bryan\OneDrive\Documents\GitHub\Learning-Entity-Framework-Core_Packt_DimitrisLoukas\course-code\Code\Section 3\BookStoreApp\BookStoreApp\obj\Debug\netcoreapp2.0\BookStoreApp.pdb
+C:\Users\bryan\OneDrive\Documents\GitHub\Learning-Entity-Framework-Core_Packt_DimitrisLoukas\course-code\Code\Section 3\BookStoreApp\BookStoreApp\bin\Debug\netcoreapp2.0\BookStoreApp.deps.json
+C:\Users\bryan\OneDrive\Documents\GitHub\Learning-Entity-Framework-Core_Packt_DimitrisLoukas\course-code\Code\Section 3\BookStoreApp\BookStoreApp\bin\Debug\netcoreapp2.0\BookStoreApp.runtimeconfig.json
+C:\Users\bryan\OneDrive\Documents\GitHub\Learning-Entity-Framework-Core_Packt_DimitrisLoukas\course-code\Code\Section 3\BookStoreApp\BookStoreApp\bin\Debug\netcoreapp2.0\BookStoreApp.runtimeconfig.dev.json
+C:\Users\bryan\OneDrive\Documents\GitHub\Learning-Entity-Framework-Core_Packt_DimitrisLoukas\course-code\Code\Section 3\BookStoreApp\BookStoreApp\bin\Debug\netcoreapp2.0\BookStoreApp.dll
+C:\Users\bryan\OneDrive\Documents\GitHub\Learning-Entity-Framework-Core_Packt_DimitrisLoukas\course-code\Code\Section 3\BookStoreApp\BookStoreApp\bin\Debug\netcoreapp2.0\BookStoreApp.pdb

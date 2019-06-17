@@ -13,7 +13,7 @@
     <thead>
         <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.CreatedAt)
+                    @Html.DisplayNameFor(model => model.CreatedTimeStamp)
                 </th>
             <th>
                 First Name
@@ -31,7 +31,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
+                @Html.DisplayFor(modelItem => item.CreatedTimeStamp)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Client.FirstName)

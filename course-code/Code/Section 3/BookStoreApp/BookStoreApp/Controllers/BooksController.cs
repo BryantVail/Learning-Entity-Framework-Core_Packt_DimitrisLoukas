@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BookStoreApp.Data;
 using BookStoreApp.Models;
-using Newtonsoft.Json;
 
 namespace BookStoreApp.Controllers
 {
@@ -23,107 +22,31 @@ namespace BookStoreApp.Controllers
         // GET: Books
         public async Task<IActionResult> Index()
         {
-            var books = await _context.Books.Include(b => b.Author).ToListAsync();
-            return View(books);
-        }
-
-        [Route("Books/Explicit")]
-        public async Task<IActionResult> BooksExplicit()
-        {
             var books = await _context.Books.ToListAsync();
-            foreach (var book in books)
+            books = books.FindAll(b =>
             {
-                await _context.Entry(book).Reference(b => b.Author).LoadAsync();
-            }
-            return View("Index", books);
-        }
-
-        [Route("Books/Eager")]
-        public async Task<IActionResult> BooksEager()
-        {
-            var books = await _context.Books.Include(b => b.Author).ToListAsync();
-            return View("Index", books);
-        }
-
-        [Route("Books/Raw")]
-        public async Task<IActionResult> BooksRaw()
-        {
-            var books = await _context.Books.FromSql("SELECT * FROM dbo.books")
-                                            .Include(b => b.Author)
-                                            .AsNoTracking()
-                                            .ToListAsync();
-            return View("Index", books);
-        }
-
-        [Route("Books/Raw/Author/{id}")]
-        public async Task<IActionResult> BooksByAuthorRaw(int? id)
-        {
-            if(id == null)
-            {
-                return NotFound();
-            }
-            else
-            {
-                int authorId = (int)id;
-                var books = await _context.Books.FromSql($"SELECT * FROM dbo.Books WHERE AuthorId={authorId}")
-                                            .Include(b => b.Author)
-                                            .ToListAsync();
-                return View("Index", books);
-            }
-        }
-
-        [Route("books/sp/{firstName}/{lastName}")]
-        public async Task<IActionResult> BooksSp(string firstName, string lastName)
-        {
-            var books = await _context.Books.FromSql($"EXEC dbo.BooksByAuthor {firstName}, {lastName}").ToListAsync();
-            return View("Index", books);
+                var now = DateTime.Now;
+                return _context.Entry(b).Property<DateTime>("CreateTimeStamp").CurrentValue >= new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
+            });
+            return View(books);
         }
 
         // GET: Books/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if(id == null)
+            if (id == null)
             {
                 return NotFound();
             }
-            else
-            {
-                int bookId = (int)id;
-                var book = await _context.Books.AsNoTracking().SingleOrDefaultAsync(b => b.Id == id);
-                if(book == null)
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    return View(book);
-                }
-            }
-        }
-        
-        [Route("books/author/{id}")]
-        public async Task<IActionResult> GetBookByAuthor(int? id)
-        {
-            if(id == null)
+
+            var book = await _context.Books
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (book == null)
             {
                 return NotFound();
             }
-            else
-            {
-                int authorId = (int)id;
-                var books = await ( from b in _context.Books
-                            where b.AuthorId == authorId
-                            orderby b.Isbn descending
-                            select b ).ToListAsync();
-                if(books == null)
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    return View("ByAuthor", books);
-                }
-            }
+
+            return View(book);
         }
 
         // GET: Books/Create
@@ -137,7 +60,7 @@ namespace BookStoreApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,AuthorId,Isbn")] Book book)
+        public async Task<IActionResult> Create([Bind("Id,Title,Author,Isbn")] Book book)
         {
             if (ModelState.IsValid)
             {
@@ -156,7 +79,7 @@ namespace BookStoreApp.Controllers
                 return NotFound();
             }
 
-            var book = await _context.Books.SingleOrDefaultAsync(m => m.Id == id);
+            var book = await _context.Books.FindAsync(id);
             if (book == null)
             {
                 return NotFound();
@@ -169,9 +92,8 @@ namespace BookStoreApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,AuthorId,Isbn")] Book book, byte[] RowVersion)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Author,Isbn")] Book book)
         {
-            book.RowVersion = RowVersion;
             if (id != book.Id)
             {
                 return NotFound();
@@ -192,8 +114,7 @@ namespace BookStoreApp.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError(String.Empty, "This book has been edited by another user. Please exit and try again");
-                        return View(book);
+                        throw;
                     }
                 }
                 return RedirectToAction(nameof(Index));
@@ -210,7 +131,7 @@ namespace BookStoreApp.Controllers
             }
 
             var book = await _context.Books
-                .SingleOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (book == null)
             {
                 return NotFound();
@@ -224,7 +145,7 @@ namespace BookStoreApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var book = await _context.Books.SingleOrDefaultAsync(m => m.Id == id);
+            var book = await _context.Books.FindAsync(id);
             _context.Books.Remove(book);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
