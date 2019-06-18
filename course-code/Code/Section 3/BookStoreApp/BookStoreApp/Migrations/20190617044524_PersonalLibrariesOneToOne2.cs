@@ -31,6 +31,7 @@ namespace BookStoreApp.Migrations
                 name: "AuthorLastName",
                 table: "Books",
                 newName: "AuthorId1");
+
             migrationBuilder.DropColumn(
                 name: "AuthorId1",
                 table: "Books"
