@@ -18,10 +18,10 @@ namespace BookStoreApp.Migrations
             //    name: "TempId",
             //    table: "Authors");
 
-            migrationBuilder.AddColumn<string>(
-                name: "AuthorId1",
-                table: "Books",
-                nullable: true);
+            //migrationBuilder.AddColumn<string>(
+            //    name: "AuthorId1",
+            //    table: "Books",
+            //    nullable: true);
 
             //migrationBuilder.CreateIndex(
             //    name: "IX_Books_AuthorId1",
@@ -48,9 +48,9 @@ namespace BookStoreApp.Migrations
                 name: "FK_Books_Authors_AuthorId1",
                 table: "Books");
 
-            migrationBuilder.DropIndex(
-                name: "IX_Books_AuthorId1",
-                table: "Books");
+            //migrationBuilder.DropIndex(
+            //    name: "IX_Books_AuthorId1",
+            //    table: "Books");
 
             migrationBuilder.DropColumn(
                 name: "AuthorId1",

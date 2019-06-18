@@ -1,0 +1,92 @@
+EnvironmentVariable at the command-line
+    At the command line
+
+    You can easily set an environment variable from a command prompt using the setx.exe command included in Windows since Vista. You can use it to easily set a user variable:
+
+    >setx ASPNETCORE_ENVIRONMENT "Development"
+
+    SUCCESS: Specified value was saved.
+
+    Note that the environment variable is not set in the current open window. You will need to open a new command prompt to see the updated environment. It is also possible to set system variables (rather than just user variables) if you open an administrative command prompt and add the /M switch:
+
+    >setx ASPNETCORE_ENVIRONMENT "Development" /M
+
+    SUCCESS: Specified value was saved.
+
+    Code: 
+        C:\Users\bvail\Documents\GitHub\Learning-Entity-Framework-Core_Packt_DimitrisLoukas\course-code\Code\Section 3\BookStoreApp\BookStoreApp
+        >setx ASPNETCORE_ENVIRONMENT "Development" /M
+_______________________________________________________
+dotnet ef command-line: 
+
+    Usage: dotnet ef [options] [command]
+
+        Options:
+        --version        Show version information
+        -h|--help        Show help information
+        -v|--verbose     Show verbose output.
+        --no-color       Don't colorize output.
+        --prefix-output  Prefix output with level.
+
+        Commands:
+            database    
+                description: 
+                    Commands to manage the database.
+                Commands:
+                    drop    
+                        Drops the database.
+                    update  
+                    Updates the database to a specified migration.
+            dbcontext   
+                description: 
+                    Commands to manage DbContext types.
+                commands: 
+                    
+        migrations  Commands to manage migrations.
+
+        Use "dotnet ef [command] --help" for more information about a command.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

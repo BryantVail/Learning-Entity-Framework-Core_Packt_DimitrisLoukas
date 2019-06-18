@@ -7,6 +7,9 @@ namespace BookStoreApp.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropForeignKey(
+                name: "FK_Books_Authors_AuthorId1",
+                table: "Books");
             //migrationBuilder.DropForeignKey(
             //    name: "FK_Books_Authors_AuthorId1",
             //    table: "Books");
@@ -24,7 +27,7 @@ namespace BookStoreApp.Migrations
             migrationBuilder.AlterColumn<int>(
                 name: "AuthorId",
                 table: "Books",
-                nullable: true,
+                nullable: false,
                 oldClrType: typeof(int));
 
             //migrationBuilder.DropColumn(
@@ -113,12 +116,12 @@ namespace BookStoreApp.Migrations
             //    type: "int"
             //);
 
-            //migrationBuilder.AlterColumn<string>(
-            //    name: "Id",
-            //    table: "Authors",
-            //    nullable: false,
-            //    oldClrType: typeof(int))
-            //    .OldAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+            migrationBuilder.AlterColumn<int>(
+                name: "Id",
+                table: "Authors",
+                nullable: false,
+                oldClrType: typeof(string))
+                .OldAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Books_AuthorId",
@@ -127,13 +130,13 @@ namespace BookStoreApp.Migrations
 
 
 
-            //    migrationBuilder.AddForeignKey(
-            //        name: "FK_Books_Authors_AuthorId",
-            //        table: "Books",
-            //        column: "AuthorId",
-            //        principalTable: "Authors",
-            //        principalColumn: "Id",
-            //        onDelete: ReferentialAction.Restrict);
+            migrationBuilder.AddForeignKey(
+                name: "FK_Books_Authors_AuthorId",
+                table: "Books",
+                column: "AuthorId",
+                principalTable: "Authors",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Restrict);
         }
     }
 }

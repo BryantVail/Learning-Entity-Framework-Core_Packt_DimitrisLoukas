@@ -31,12 +31,15 @@ namespace BookStoreApp.Migrations
                 name: "AuthorLastName",
                 table: "Books",
                 newName: "AuthorId1");
+            migrationBuilder.DropColumn(
+                name: "AuthorId1",
+                table: "Books"
+            );
 
-            migrationBuilder.AlterColumn<string>(
+            migrationBuilder.AlterColumn<int>(
                 name: "Id",
                 table: "Authors",
                 nullable: false,
-                oldClrType: typeof(string),
                 oldNullable: true);
 
             migrationBuilder.AlterColumn<string>(
@@ -56,29 +59,29 @@ namespace BookStoreApp.Migrations
                 table: "Authors",
                 column: "Id");
 
-            migrationBuilder.CreateIndex(
-                name: "IX_Books_AuthorId1",
-                table: "Books",
-                column: "AuthorId1");
+            //migrationBuilder.CreateIndex(
+            //    name: "IX_Books_AuthorId1",
+            //    table: "Books",
+            //    column: "AuthorId1");
 
-            migrationBuilder.AddForeignKey(
-                name: "FK_Books_Authors_AuthorId1",
-                table: "Books",
-                column: "AuthorId1",
-                principalTable: "Authors",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
+            //migrationBuilder.AddForeignKey(
+            //    name: "FK_Books_Authors_AuthorId1",
+            //    table: "Books",
+            //    column: "AuthorId1",
+            //    principalTable: "Authors",
+            //    principalColumn: "Id",
+            //    onDelete: ReferentialAction.Restrict);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_Books_Authors_AuthorId1",
-                table: "Books");
+            //migrationBuilder.DropForeignKey(
+            //    name: "FK_Books_Authors_AuthorId1",
+            //    table: "Books");
 
-            migrationBuilder.DropIndex(
-                name: "IX_Books_AuthorId1",
-                table: "Books");
+            //migrationBuilder.DropIndex(
+            //    name: "IX_Books_AuthorId1",
+            //    table: "Books");
 
             migrationBuilder.DropPrimaryKey(
                 name: "PK_Authors",
@@ -113,11 +116,10 @@ namespace BookStoreApp.Migrations
                 oldClrType: typeof(string),
                 oldNullable: true);
 
-            migrationBuilder.AlterColumn<string>(
+            migrationBuilder.AlterColumn<int>(
                 name: "Id",
                 table: "Authors",
-                nullable: true,
-                oldClrType: typeof(string));
+                nullable: false);
 
             migrationBuilder.AddPrimaryKey(
                 name: "PK_Authors",

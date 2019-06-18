@@ -6,6 +6,8 @@ namespace BookStoreApp.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            
+
             migrationBuilder.DropForeignKey(
                 name: "FK_AuthorBooks_Books_AuthorId",
                 table: "AuthorBooks");

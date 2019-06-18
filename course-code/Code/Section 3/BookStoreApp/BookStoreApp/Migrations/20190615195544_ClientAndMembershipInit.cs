@@ -39,10 +39,10 @@ namespace BookStoreApp.Migrations
                 nullable: false,
                 defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
 
-            migrationBuilder.AddColumn<string>(
+            migrationBuilder.AddColumn<int>(
                 name: "Id",
                 table: "Author",
-                nullable: true);
+                nullable: false);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Books_AuthorFirstName_AuthorLastName_AuthorDateOfBirth",
@@ -80,17 +80,17 @@ namespace BookStoreApp.Migrations
                 name: "AuthorId",
                 table: "Books");
 
-            migrationBuilder.DropColumn(
-                name: "AuthorLastName",
-                table: "Books");
+            //migrationBuilder.DropColumn(
+            //    name: "AuthorLastName",
+            //    table: "Books");
 
             migrationBuilder.DropColumn(
                 name: "DoB",
                 table: "Author");
 
-            migrationBuilder.DropColumn(
-                name: "Id",
-                table: "Author");
+            //migrationBuilder.DropColumn(
+            //    name: "Id",
+            //    table: "Author");
 
             migrationBuilder.RenameColumn(
                 name: "Id",
