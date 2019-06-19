@@ -7,13 +7,10 @@ namespace BookStoreApp.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_Books_Authors_AuthorId1",
-                table: "Books");
             //migrationBuilder.DropForeignKey(
             //    name: "FK_Books_Authors_AuthorId1",
             //    table: "Books");
-
+            
             //Cannot drop the index 'Books.IX_Books_AuthorId1', because it does not exist or you do not have permission.
             //migrationBuilder.DropIndex(
             //    name: "IX_Books_AuthorId1",
@@ -24,12 +21,7 @@ namespace BookStoreApp.Migrations
             //    name: "AuthorId1",
             //    table: "Books");
 
-            migrationBuilder.AlterColumn<int>(
-                name: "AuthorId",
-                table: "Books",
-                nullable: false,
-                oldClrType: typeof(int));
-
+            
             //migrationBuilder.DropColumn(
             //    name: "Id",
             //    table: "Authors");
@@ -91,22 +83,8 @@ namespace BookStoreApp.Migrations
             migrationBuilder.DropTable(
                 name: "AuthorBooks");
 
-            migrationBuilder.DropIndex(
-                name: "IX_Books_AuthorId",
-                table: "Books");
-
-            migrationBuilder.AlterColumn<int>(
-                name: "AuthorId",
-                table: "Books",
-                nullable: false,
-                oldClrType: typeof(int),
-                oldNullable: true);
-
-            migrationBuilder.AddColumn<int>(
-                name: "AuthorId",
-                table: "Books",
-                nullable: false);
-
+            
+            
             //migrationBuilder.DropColumn(
             //    name: "Id",
             //    table: "Authors");
@@ -116,12 +94,7 @@ namespace BookStoreApp.Migrations
             //    type: "int"
             //);
 
-            migrationBuilder.AlterColumn<int>(
-                name: "Id",
-                table: "Authors",
-                nullable: false,
-                oldClrType: typeof(string))
-                .OldAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+            
 
             migrationBuilder.CreateIndex(
                 name: "IX_Books_AuthorId",

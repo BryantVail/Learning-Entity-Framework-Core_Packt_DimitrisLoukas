@@ -20,6 +20,7 @@ namespace BookStoreApp.Models
 
         //public List<AuthorBookLookup> Authors { get; set; }
         public int AuthorId { get; set; }
+        [NotMapped]
         public Author Author { get; set; }
         public string Isbn { get; set; }
 

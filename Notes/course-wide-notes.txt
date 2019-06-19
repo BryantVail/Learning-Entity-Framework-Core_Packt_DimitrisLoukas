@@ -1,3 +1,8 @@
+Header: 
+    https://www.packtpub.com/catalogsearch/result/?q=functional%20c%23
+_______________________________________________________
+
+
 EnvironmentVariable at the command-line
     At the command line
 
@@ -41,7 +46,7 @@ dotnet ef command-line:
                 description: 
                     Commands to manage DbContext types.
                 commands: 
-                    
+
         migrations  Commands to manage migrations.
 
         Use "dotnet ef [command] --help" for more information about a command.

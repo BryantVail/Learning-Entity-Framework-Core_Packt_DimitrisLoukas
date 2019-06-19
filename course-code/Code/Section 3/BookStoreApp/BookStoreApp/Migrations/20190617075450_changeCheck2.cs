@@ -56,23 +56,32 @@ namespace BookStoreApp.Migrations
                 name: "AuthorId1",
                 table: "Books");
 
-            migrationBuilder.AddColumn<int>(
-                name: "TempId",
-                table: "Authors",
-                nullable: false,
-                defaultValue: 0);
+            //migrationBuilder.AddColumn<int>(
+            //    name: "TempId",
+            //    table: "Authors",
+            //    nullable: false,
+            //    defaultValue: 0);
 
-            migrationBuilder.AddUniqueConstraint(
-                name: "AK_Authors_TempId",
-                table: "Authors",
-                column: "TempId");
+            //migrationBuilder.AddUniqueConstraint(
+            //    name: "AK_Authors_TempId",
+            //    table: "Authors",
+            //    column: "TempId");
+
+            migrationBuilder.DropColumn(
+                name: "Id",
+                table: "Author");
+
+            migrationBuilder.AddColumn<int>(
+                name: "Id",
+                table: "Author",
+                nullable: false);
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Books_Authors_AuthorId",
                 table: "Books",
                 column: "AuthorId",
                 principalTable: "Authors",
-                principalColumn: "TempId",
+                principalColumn: "Id",
                 onDelete: ReferentialAction.Restrict);
         }
     }

@@ -56,6 +56,7 @@ namespace BookStoreApp.Migrations
                 principalTable: "Author",
                 principalColumns: new[] { "FirstName", "LastName", "DateOfBirth" },
                 onDelete: ReferentialAction.Restrict);
+            
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

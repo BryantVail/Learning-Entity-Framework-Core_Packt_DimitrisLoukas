@@ -76,8 +76,6 @@ namespace BookStoreApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AuthorId");
-
                     b.HasIndex("Isbn")
                         .IsUnique()
                         .HasName("IsbnIndex")
@@ -173,14 +171,6 @@ namespace BookStoreApp.Migrations
                     b.HasOne("BookStoreApp.Models.Book", "Book")
                         .WithMany()
                         .HasForeignKey("BookId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("BookStoreApp.Models.Book", b =>
-                {
-                    b.HasOne("BookStoreApp.Models.Author", "Author")
-                        .WithMany()
-                        .HasForeignKey("AuthorId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

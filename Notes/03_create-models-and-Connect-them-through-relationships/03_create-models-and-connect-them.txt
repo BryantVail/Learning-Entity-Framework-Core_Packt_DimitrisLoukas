@@ -107,6 +107,41 @@ One-to-Many
     Navigation Property of type "Author" in the "Books" class
 
 
+--------------------------------------------
+--------------------------------------------
+Clean Up Effort: 
+    dbo.Author.Id needs to be an int 
+        -current Migration: 
+            '20190615200608_DbSetAddedClientsAndMemberships'
+                dbo.Author.Id.type = nvarchar(max), not null 
+                -Foreign Keys must be deleted before Primary keys 
+                -
+            "20190615200608_DbSetAddedClientsAndMemberships"
+                -done
+            "20190617044524_PersonalLibrariesOneToOne2"
+                -transitioned logic to: 
+                    20190615200608_DbSetAddedClientsAndMemberships
+            "20190617062654_PersonalLibraryBooksManyToMany": 
+            "20190617072241_DateOfBirth-not-DoB": 
+            "20190617075450_changeCheck2":
+            "20190617082925_authorBookLookup",
+                attemps: [
+                    {
+                        attemptCount: 1,
+                        description: 
+                            "",
+                        action: 
+                            "",
+                        
+                    }
+                ]
+
+
+
+
+
+
+
 
 
 

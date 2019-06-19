@@ -75,6 +75,57 @@ namespace BookStoreApp.Migrations
                 principalTable: "Authors",
                 principalColumns: new[] { "FirstName", "LastName", "DateOfBirth" },
                 onDelete: ReferentialAction.Restrict);
+
+            //EDITS//EDITS//EDITS//EDITS//EDITS//EDITS//EDITS//EDITS
+            //EDITS//EDITS//EDITS//EDITS//EDITS//EDITS//EDITS//EDITS
+
+            //Drop Books ForeignKey
+            migrationBuilder.DropForeignKey(
+                name: "FK_Books_Authors_AuthorId",
+                table: "Books");
+
+            //Drop Authors AlternateKey
+            migrationBuilder.DropForeignKey(
+                name: "AK_Authors_TempId",
+                table: "Authors");
+            
+
+            migrationBuilder.DropColumn(
+                name: "TempId",
+                table: "Authors");
+
+            
+
+            //drop & add dbo.Authors.Id to create as "int" type
+            migrationBuilder.AlterColumn<int>(
+                name: "Id",
+                table: "Authors",
+                type: "int",
+                nullable: false);
+
+            //DropForeignKey Books
+            migrationBuilder.DropForeignKey(
+                name: "FK_Books_Authors_AuthorFirstName_AuthorLastName_AuthorDateOfBirth",
+                table: "Books");
+
+            //DropPrimaryKey
+            migrationBuilder.DropPrimaryKey(
+                name: "PK_Authors",
+                table: "Authors");
+
+            //AddPrimaryKey to Authors so foreign key check is validated
+            migrationBuilder.AddPrimaryKey(
+                name: "PK_Authors",
+                table: "Authors",
+                column: "Id");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Books_Authors_AuthorId",
+                table: "Books",
+                column: "AuthorId",
+                principalTable: "Authors",
+                principalColumn: "Id");
+
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
