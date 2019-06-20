@@ -21,9 +21,10 @@ namespace BookStoreApp.Migrations
             //Edits//Edits//Edits//Edits//Edits//Edits//Edits
 
             //drop Author Column from Books
-            migrationBuilder.DropColumn(
-                name: "Author",
-                table: "Books");
+            //migrationBuilder.DropColumn(
+            //    name: "Author",
+            //    table: "Books");
+
             migrationBuilder.DropColumn(
                 name: "AuthorLastName",
                 table: "Books");

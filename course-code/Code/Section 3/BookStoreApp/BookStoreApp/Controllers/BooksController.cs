@@ -23,30 +23,13 @@ namespace BookStoreApp.Controllers
         public async Task<IActionResult> Index()
         {
             var books = await _context.Books.ToListAsync();
-            books = books.FindAll(b =>
-            {
-                var now = DateTime.Now;
-                return _context.Entry(b).Property<DateTime>("CreateTimeStamp").CurrentValue >= new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
-            });
             return View(books);
         }
 
         // GET: Books/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var book = await _context.Books
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (book == null)
-            {
-                return NotFound();
-            }
-
-            return View(book);
+            throw new NotImplementedException();
         }
 
         // GET: Books/Create
