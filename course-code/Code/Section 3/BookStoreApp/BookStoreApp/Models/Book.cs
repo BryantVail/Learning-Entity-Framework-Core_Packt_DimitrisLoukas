@@ -26,7 +26,7 @@ namespace BookStoreApp.Models
 
         //Initialized Values
         //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]//DatabaseGenerationOption must be selected explicitly
-        //public DateTime CreatedTimeStamp { get; set; }
+        public DateTime CreatedTimeStamp { get; set; }
 
 
         //Composite Values
