@@ -52,7 +52,9 @@ dotnet ef command-line:
         Use "dotnet ef [command] --help" for more information about a command.
 
 
-
+-------------------------------------------------------------
+SQL Naming Conventions: 
+    FK_<TargetTable>_<SourceTable>
 
 
 

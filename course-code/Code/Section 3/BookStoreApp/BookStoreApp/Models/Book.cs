@@ -22,6 +22,7 @@ namespace BookStoreApp.Models
         public int AuthorId { get; set; }
         [NotMapped]
         public Author Author { get; set; }
+
         public string Isbn { get; set; }
 
         //Initialized Values

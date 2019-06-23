@@ -25,6 +25,7 @@ namespace BookStoreApp.Migrations
             //    name: "Author",
             //    table: "Books");
 
+            //didn't need this at home
             migrationBuilder.DropColumn(
                 name: "AuthorLastName",
                 table: "Books");

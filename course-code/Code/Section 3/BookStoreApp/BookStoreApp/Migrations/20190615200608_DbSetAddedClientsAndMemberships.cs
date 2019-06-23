@@ -79,22 +79,24 @@ namespace BookStoreApp.Migrations
             //EDITS//EDITS//EDITS//EDITS//EDITS//EDITS//EDITS//EDITS
             //EDITS//EDITS//EDITS//EDITS//EDITS//EDITS//EDITS//EDITS
 
+            //after drop & update, this was unnecessary
             //Drop Books ForeignKey
-            migrationBuilder.DropForeignKey(
-                name: "FK_Books_Authors_AuthorId",
-                table: "Books");
+            //migrationBuilder.DropForeignKey(
+            //    name: "FK_Books_Authors_AuthorId",
+            //    table: "Books");
 
+            //after drop & update, this was unnecessary
             //Drop Authors AlternateKey
-            migrationBuilder.DropForeignKey(
-                name: "AK_Authors_TempId",
-                table: "Authors");
-            
+            //migrationBuilder.DropForeignKey(
+            //    name: "AK_Authors_TempId",
+            //    table: "Authors");
 
-            migrationBuilder.DropColumn(
-                name: "TempId",
-                table: "Authors");
+            //after drop & update, this was unnecessary
+            //migrationBuilder.DropColumn(
+            //    name: "TempId",
+            //    table: "Authors");
 
-            
+
 
             //drop & add dbo.Authors.Id to create as "int" type
             migrationBuilder.AlterColumn<int>(

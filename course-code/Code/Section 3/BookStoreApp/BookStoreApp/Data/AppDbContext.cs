@@ -35,6 +35,9 @@ namespace BookStoreApp.Data
             modelBuilder.Entity<Book>().Property<DateTime>("CreatedTimeStamp").HasDefaultValueSql("getDate()");
             //modelBuilder.Entity<Book>().Property<Int32>("AuthorId");
             //modelBuilder.Entity<Author>().HasKey(a => new { a.FirstName, a.LastName, a.DateOfBirth, a.Id });
+            modelBuilder.Entity<Author>()
+                .Property<int>("Id")
+                .HasDefaultValueSql("newId()");
 
             //these exist in the class explicitly now
             //modelBuilder.Entity<PersonalLibraryBook>().Property<Int32>("BookId");
